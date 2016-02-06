@@ -228,7 +228,7 @@ var education = {
             $('.education-entry:last').append(HTMLschoolDegree.replace(data, school.degree));
             $('.education-entry:last').append(HTMLschoolDates.replace(data, school.dates));
             $('.education-entry:last').append(HTMLschoolLocation.replace(data, school.location));
-            $('.education-entry:last').append(HTMLschoolMajor.replace(data, school.majors));
+            $('.education-entry:last').append(HTMLschoolMajor.replace(data, school.majors[0]));
         });
         $('#education').append(HTMLonlineClasses);
         education.onlinecourses.forEach(function(course) {
