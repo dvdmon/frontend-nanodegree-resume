@@ -18,12 +18,14 @@ var bio = {
         var data = '%data%';
         var $header = $('#header');
         var $topCont = $('#topContacts');
+        var $footCont = $('#footerContacts');
         $header.prepend(HTMLbioPic.replace(data, bio.biopic));
         $header.prepend(HTMLheaderRole.replace(data, bio.role));
         $header.prepend(HTMLheaderName.replace(data, bio.name));
         $topCont.append(HTMLmobile.replace(data, bio.contacts.mobile));
         $topCont.append(HTMLemail.replace(data, bio.contacts.email));
         $topCont.append(HTMLgithub.replace(data, bio.contacts.github));
+        $topCont.append(HTMLtwitter.replace(data, bio.contacts.twitter));
         $topCont.append(HTMLlocation.replace(data, bio.contacts.location));
         $header.append(HTMLwelcomeMsg.replace(data, bio.welcomeMessage));
         if (bio.skills.length > 0) {
@@ -34,6 +36,12 @@ var bio = {
                 $skills.append(HTMLskills.replace(data, skill));
             });
         }
+        // footer contacts
+        $footCont.append(HTMLmobile.replace(data, bio.contacts.mobile));
+        $footCont.append(HTMLemail.replace(data, bio.contacts.email));
+        $footCont.append(HTMLgithub.replace(data, bio.contacts.github));
+        $footCont.append(HTMLtwitter.replace(data, bio.contacts.twitter));
+        $footCont.append(HTMLlocation.replace(data, bio.contacts.location));
     }
 };
 
@@ -181,8 +189,8 @@ var education = {
     'schools': [{
         'name': 'University of Virginia',
         'location': 'Charlottesville, VA, US',
-        'degree': ['Master of Arts'],
-        'majors': 'Slavic Linguistics',
+        'degree': 'Master of Arts',
+        'majors': ['Slavic Linguistics'],
         'dates': '1994',
         'url': 'http://www.virginia.edu'
     }, {
@@ -203,12 +211,12 @@ var education = {
     'onlinecourses': [{
         'title': 'Front-end Web Development',
         'school': 'Udacity',
-        'dates': 'December 2015 - Present',
+        'date': 'December 2015 - Present',
         'url': 'http://www.udacity.com/Front-End-Web-Dev'
     }, {
         'title': 'Back-end Development',
         'school': 'Udacity',
-        'dates': 'December 2014 - December 2015',
+        'date': 'December 2014 - December 2015',
         'url': 'http://www.udacity.com/Front-End-Web-Dev'
     }],
     display: function() {
@@ -229,7 +237,7 @@ var education = {
             $eduStart.append(HTMLschoolStart);
             $('.education-entry:last').append(HTMLonlineTitle.replace(data, course.title));
             $('.education-entry:last').append(HTMLonlineSchool.replace(data, course.school));
-            $('.education-entry:last').append(HTMLonlineDates.replace(data, course.dates));
+            $('.education-entry:last').append(HTMLonlineDates.replace(data, course.date));
         });
     }
 };
